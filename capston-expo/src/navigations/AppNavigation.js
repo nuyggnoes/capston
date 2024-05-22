@@ -1,6 +1,8 @@
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
 // function MainNavigator() {
 //   return (
@@ -71,14 +73,7 @@ import React from "react";
 // };
 
 export default function AppContainer() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="first tab" component={First} />
-        <Tab.Screen name="second tab" component={Second} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+  return <NavigationContainer></NavigationContainer>;
 }
 
 // console.disableYellowBox = true;
