@@ -1,30 +1,33 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LoginScreen from "../screens/LoginScreen";
+import HomeScreen from "../screens/HomeScreen";
 
 const Stack = createNativeStackNavigator();
 
-// function MainNavigator() {
-//   return (
-//     <Stack.Navigator
-//       screenOptions={{
-//         headerTitleStyle: {
-//           fontWeight: "bold",
-//           textAlign: "center",
-//           alignSelf: "center",
-//           flex: 1,
-//         },
-//       }}>
-//       <Stack.Screen name="Home" component={HomeScreen} />
-//       <Stack.Screen name="Categories" component={CategoriesScreen} />
-//       <Stack.Screen name="Recipe" component={RecipeScreen} />
-//       <Stack.Screen name="RecipesList" component={RecipesListScreen} />
-//       <Stack.Screen name="Ingredient" component={IngredientScreen} />
-//       <Stack.Screen name="Search" component={SearchScreen} />
-//       <Stack.Screen name="IngredientsDetails" component={IngredientsDetailsScreen} />
-//     </Stack.Navigator>
-//   );
-// }
+function MainNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerTitleStyle: {
+          fontWeight: "bold",
+          textAlign: "center",
+          alignSelf: "center",
+          flex: 1,
+        },
+        headerStyle: {
+          backgroundColor: "#ffffff",
+        },
+        contentStyle: {
+          backgroundColor: "#ffffff",
+        },
+      }}>
+      <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
+}
 
 // // const Drawer = createDrawerNavigator();
 
@@ -73,7 +76,11 @@ const Stack = createNativeStackNavigator();
 // };
 
 export default function AppContainer() {
-  return <NavigationContainer></NavigationContainer>;
+  return (
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
+  );
 }
 
 // console.disableYellowBox = true;

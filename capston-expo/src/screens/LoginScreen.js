@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { theme } from "../../color";
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation, route }) {
   const [click, setClick] = useState(false);
   const logo = require("../../assets/pknulogo.png");
   const { username, setUsername } = useState("");
@@ -63,14 +63,9 @@ export default function LoginScreen() {
           <Pressable style={styles.button} onPress={() => Alert.alert("Login Successfuly!", `${click}`)}>
             <Text style={styles.buttonText}>LOGIN</Text>
           </Pressable>
-          {/* <Text style={styles.optionsText}>OR LOGIN WITH</Text> */}
         </View>
 
-        <View style={styles.mediaIcons}>
-          {/* <Image source={facebook} style={styles.icons} /> */}
-          {/* <Image source={tiktok} style={styles.icons} /> */}
-          {/* <Image source={linkedin} style={styles.icons} /> */}
-        </View>
+        <View style={styles.mediaIcons}></View>
 
         <Text style={styles.footerText}>
           Don't Have Account?
@@ -78,6 +73,7 @@ export default function LoginScreen() {
             <Text style={styles.signup}> Sign Up</Text>
           </Pressable>
         </Text>
+        <Text>This is {route.params.name}'s profile</Text>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );

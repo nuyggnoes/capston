@@ -1,6 +1,6 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 import LoginScreen from "./src/screens/LoginScreen";
+import AppContainer from "./src/navigations/AppNavigation";
 
 export default function App() {
   return (
@@ -8,20 +8,7 @@ export default function App() {
     //   <Text style={styles.mainText}>Login Screen</Text>
     //   {/* <StatusBar style="auto" /> */}
     // </View>
-    <LoginScreen />
+    // <LoginScreen />
+    <AppContainer />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "beig",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  mainText: {
-    color: "black",
-    fontSize: 50,
-    fontWeight: "900",
-  },
-});
