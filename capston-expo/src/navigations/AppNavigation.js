@@ -3,8 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "../screens/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function MainNavigator() {
   return (
@@ -29,8 +31,21 @@ function MainNavigator() {
   );
 }
 
-// // const Drawer = createDrawerNavigator();
+function DrawerNavigator() {
+  return (
+    <Drawer.Navigator initialRouteName="Main">
+      <Drawer.Screen name="Main" component={MainNavigator} />
+    </Drawer.Navigator>
+  );
+}
 
+export default function AppContainer() {
+  return (
+    <NavigationContainer>
+      <DrawerNavigator />
+    </NavigationContainer>
+  );
+}
 // // function DrawerStack() {
 // //   return (
 // //     <Drawer.Navigator
@@ -45,42 +60,5 @@ function MainNavigator() {
 // //     </Drawer.Navigator>
 // //   );
 // // }
-// const HomeScreen = () => {
-//   return (
-//     <View>
-//       <Text>Home Screen</Text>
-//     </View>
-//   );
-// };
-
-// const ProfileScreen = ({ navigation, route }) => {
-//   return <Text>This is {route.params.name}'s profile</Text>;
-// };
-
-// // tab
-// const Tab = createBottomTabNavigator();
-// // const First = () => {
-// //   return (
-// //     <View>
-// //       <Text>This is first screen</Text>
-// //     </View>
-// //   );
-// // };
-
-// const Second = () => {
-//   return (
-//     <View>
-//       <Text>This is second screen</Text>
-//     </View>
-//   );
-// };
-
-export default function AppContainer() {
-  return (
-    <NavigationContainer>
-      <MainNavigator />
-    </NavigationContainer>
-  );
-}
 
 // console.disableYellowBox = true;
