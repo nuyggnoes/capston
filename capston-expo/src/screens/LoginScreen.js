@@ -12,10 +12,14 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   View,
+  TouchableOpacity,
 } from "react-native";
 import { theme } from "../../color";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { BellIcon, Bars4Icon } from "react-native-heroicons/outline";
+import Header from "../components/Header";
 
-export default function LoginScreen({ navigation, route }) {
+export default function LoginScreen({ navigation }) {
   const [click, setClick] = useState(false);
   const logo = require("../../assets/pknulogo.png");
   const { username, setUsername } = useState("");
@@ -26,6 +30,7 @@ export default function LoginScreen({ navigation, route }) {
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <SafeAreaView style={styles.container}>
+        <Header navigation={navigation} />
         <Image source={logo} style={styles.image} resizeMode="contain" />
         <Text style={styles.title}>Login</Text>
         <View style={styles.inputView}>
@@ -73,7 +78,6 @@ export default function LoginScreen({ navigation, route }) {
             <Text style={styles.signup}> Sign Up</Text>
           </Pressable>
         </Text>
-        <Text>This is {route.params.name}'s profile</Text>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );
@@ -81,9 +85,14 @@ export default function LoginScreen({ navigation, route }) {
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
+    flex: 1,
+    backgroundColor: "white",
     alignItems: "center",
     paddingTop: 70,
+    height: "100%",
   },
+
   image: {
     marginTop: 25,
     height: 160,

@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 function MainNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Welcome"
+      initialRouteName="Home"
       screenOptions={{
         headerTitleStyle: {
           fontWeight: "bold",
@@ -39,7 +39,9 @@ function MainNavigator() {
 function DrawerNavigator() {
   return (
     <Drawer.Navigator initialRouteName="Main">
-      <Drawer.Screen name="Main" component={MainNavigator} />
+      <Drawer.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      <Drawer.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+      <Drawer.Screen name="홈화면" component={MainNavigator} options={{ headerShown: false }} />
     </Drawer.Navigator>
   );
 }
@@ -47,24 +49,10 @@ function DrawerNavigator() {
 export default function AppContainer() {
   return (
     <NavigationContainer>
-      {/* <DrawerNavigator /> */}
-      <MainNavigator />
+      <DrawerNavigator />
+      {/* <MainNavigator /> */}
     </NavigationContainer>
   );
 }
-// // function DrawerStack() {
-// //   return (
-// //     <Drawer.Navigator
-// //       drawerPosition="left"
-// //       initialRouteName="Main"
-// //       drawerStyle={{
-// //         width: 250,
-// //       }}
-// //       screenOptions={{ headerShown: false }}
-// //       drawerContent={({ navigation }) => <DrawerContainer navigation={navigation} />}>
-// //       <Drawer.Screen name="Main" component={MainNavigator} />
-// //     </Drawer.Navigator>
-// //   );
-// // }
 
 // console.disableYellowBox = true;
