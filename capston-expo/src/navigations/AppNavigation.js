@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "../screens/LoginScreen";
 import HomeScreen from "../screens/HomeScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import CalendarTestScreen from "../screens/CalendarTestScreen";
+import WelcomeScreen from "../screens/WelcomeScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -11,6 +13,7 @@ const Drawer = createDrawerNavigator();
 function MainNavigator() {
   return (
     <Stack.Navigator
+      initialRouteName="Welcome"
       screenOptions={{
         headerTitleStyle: {
           fontWeight: "bold",
@@ -25,8 +28,10 @@ function MainNavigator() {
           backgroundColor: "#ffffff",
         },
       }}>
+      <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Canlendar" component={CalendarTestScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
@@ -42,7 +47,8 @@ function DrawerNavigator() {
 export default function AppContainer() {
   return (
     <NavigationContainer>
-      <DrawerNavigator />
+      {/* <DrawerNavigator /> */}
+      <MainNavigator />
     </NavigationContainer>
   );
 }
