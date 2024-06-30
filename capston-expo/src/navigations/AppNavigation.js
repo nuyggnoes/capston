@@ -6,6 +6,7 @@ import HomeScreen from "../screens/HomeScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CalendarTestScreen from "../screens/CalendarTestScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
+import CameraScreen from "../components/CameraScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -31,7 +32,8 @@ function MainNavigator() {
       <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Canlendar" component={CalendarTestScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Calendar" component={CalendarTestScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Camera" component={CameraScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
@@ -39,9 +41,9 @@ function MainNavigator() {
 function DrawerNavigator() {
   return (
     <Drawer.Navigator initialRouteName="Main">
-      <Drawer.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+      {/* <Drawer.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} /> */}
       <Drawer.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-      <Drawer.Screen name="홈화면" component={MainNavigator} options={{ headerShown: false }} />
+      <Drawer.Screen name="Main" component={MainNavigator} options={{ headerShown: false }} />
     </Drawer.Navigator>
   );
 }
