@@ -4,6 +4,7 @@ import { UserCircleIcon } from "react-native-heroicons/solid";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { DrawerActions } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
+import { theme } from "../../color";
 
 const Header = () => {
   const navigation = useNavigation();
@@ -31,7 +32,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 30,
   },
   logoContainer: {
     display: "flex",
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     marginLeft: hp(1),
     fontSize: hp(2.5),
     fontWeight: "bold",
+    color: theme.amber,
   },
 });
 
