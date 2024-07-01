@@ -1,13 +1,14 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginScreen from "../screens/LoginScreen";
-import HomeScreen from "../screens/HomeScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import HomeScreen from "../screens/HomeScreen";
+import HomeScreen2 from "../screens/HomeScreen2";
+import LoginScreen from "../screens/LoginScreen";
 import CalendarTestScreen from "../screens/CalendarTestScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 import CameraScreen from "../components/CameraScreen";
-import TestScreen from "../screens/TestScreen";
+import TestScreen2 from "../screens/TestScreen2";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeIcon, BookOpenIcon, PowerIcon } from "react-native-heroicons/solid";
 import { theme } from "../../color";
@@ -39,19 +40,27 @@ function MainNavigator() {
       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Calendar" component={CalendarTestScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Camera" component={CameraScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Test" component={HomeScreen2} options={{ headerShown: false }} />
+      <Stack.Screen
+        name="Test2"
+        component={TestScreen2}
+        options={{
+          headerShown: false,
+          animation: "slide_from_bottom",
+        }}
+      />
     </Stack.Navigator>
   );
 }
 
-function DrawerNavigator() {
-  return (
-    <Drawer.Navigator initialRouteName="Main">
-      {/* <Drawer.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} /> */}
-      <Drawer.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-      <Drawer.Screen name="Main" component={MainNavigator} options={{ headerShown: false }} />
-    </Drawer.Navigator>
-  );
-}
+// function DrawerNavigator() {
+//   return (
+//     <Drawer.Navigator initialRouteName="Main">
+//       <Drawer.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+//       <Drawer.Screen name="Main" component={MainNavigator} options={{ headerShown: false }} />
+//     </Drawer.Navigator>
+//   );
+// }
 
 function BottomTabNavigator() {
   return (
@@ -74,7 +83,7 @@ function BottomTabNavigator() {
         }}></Tab.Screen>
       <Tab.Screen
         name="Test"
-        component={TestScreen}
+        component={HomeScreen2}
         options={{
           title: "일지",
           tabBarIcon: ({ color, size }) => <PowerIcon name="Test" color={color} size={size} />,
