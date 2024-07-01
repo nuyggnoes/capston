@@ -7,9 +7,14 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import CalendarTestScreen from "../screens/CalendarTestScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 import CameraScreen from "../components/CameraScreen";
+import TestScreen from "../screens/TestScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { HomeIcon, BookOpenIcon, PowerIcon } from "react-native-heroicons/solid";
+import { theme } from "../../color";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
 function MainNavigator() {
   return (
@@ -48,11 +53,42 @@ function DrawerNavigator() {
   );
 }
 
+function BottomTabNavigator() {
+  return (
+    <Tab.Navigator
+      initialRouteName="Home"
+      screenOptions={{ headerShown: false, tabBarShowLabel: false, tabBarActiveTintColor: theme.amber }}>
+      <Tab.Screen
+        name="Home"
+        component={MainNavigator}
+        options={{
+          title: "홈",
+          tabBarIcon: ({ color, size }) => <HomeIcon name="home" color={color} size={size} />,
+        }}></Tab.Screen>
+      <Tab.Screen
+        name="Calendar"
+        component={CalendarTestScreen}
+        options={{
+          title: "일지",
+          tabBarIcon: ({ color, size }) => <BookOpenIcon name="book" color={color} size={size} />,
+        }}></Tab.Screen>
+      <Tab.Screen
+        name="Test"
+        component={TestScreen}
+        options={{
+          title: "일지",
+          tabBarIcon: ({ color, size }) => <PowerIcon name="Test" color={color} size={size} />,
+        }}></Tab.Screen>
+    </Tab.Navigator>
+  );
+}
+
 export default function AppContainer() {
   return (
     <NavigationContainer>
-      <DrawerNavigator />
+      {/* <DrawerNavigator /> */}
       {/* <MainNavigator /> */}
+      <BottomTabNavigator />
     </NavigationContainer>
   );
 }

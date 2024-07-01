@@ -41,29 +41,31 @@ export default function HomeScreen({ navigation }) {
           <Image source={require("../../assets/logo.png")} style={{ height: hp(5), width: hp(5.5) }} />
           <BellIcon size={hp(4)} color="grey" />
         </View> */}
-        <Header navigation={navigation} />
+        {/* <Header navigation={navigation} /> */}
         {/* greetings and punchline */}
         <View style={styles.greetingContainer}>
-          <Text style={{ marginBottom: 8, fontSize: hp(1.7) }}>Hello, UserName!</Text>
+          <Text style={{ marginBottom: 8, fontSize: hp(1.7) }}>Login Text</Text>
           <View style={{ marginBottom: 8 }}>
-            <Text style={{ fontSize: hp(3.8), fontWeight: "bold" }}>Make your own food,</Text>
+            <Text style={{ fontSize: hp(3.8), fontWeight: "bold" }}>Main Greeting1</Text>
           </View>
           <Text style={{ fontSize: hp(3.8), fontWeight: "bold" }}>
-            stay at <Text style={{ color: "#FFC107" }}>home</Text>
+            Main Greeting2 <Text style={{ color: theme.amber }}>Color</Text>
           </Text>
         </View>
+        <View style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Image
+            source={require("../../assets/backgroundImg.png")}
+            style={{ width: hp(30), height: hp(30) }}
+            resizeMode="contain"
+          />
+        </View>
 
-        <Calendar
-          monthFormat={"M월"}
-          onDayPress={(target) => {
-            console.log(target);
-          }}></Calendar>
         <TouchableOpacity
           style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
           onPress={openCameraHandler}>
-          <CameraIcon size={hp(10)} />
+          <CameraIcon size={hp(10)} color={theme.amber} />
         </TouchableOpacity>
-        <Button title="Go to Login" onPress={() => navigation.navigate("Login", { name: "PKNU" })} />
+        <Button title="Go to Login" onPress={() => navigation.push("Login", { name: "PKNU" })} />
         <Button title="Go to CustomCalendar" onPress={() => navigation.navigate("Calendar", { name: "Calendar" })} />
       </ScrollView>
     </View>
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     display: "flex",
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: theme.bgWhite,
   },
   scrollContainer: {
     paddingTop: 56,

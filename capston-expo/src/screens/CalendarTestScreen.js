@@ -8,6 +8,11 @@ export default function CalendarTestScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <CustomCalendar />
+      <Calendar
+        monthFormat={"M월"}
+        onDayPress={(target) => {
+          console.log(target);
+        }}></Calendar>
     </View>
   );
 }
